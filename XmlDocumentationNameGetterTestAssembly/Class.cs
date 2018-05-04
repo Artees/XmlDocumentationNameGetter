@@ -110,6 +110,27 @@ namespace XmlDocumentationNameGetterTestAssembly
         }
 
         /// <summary>
+        /// GenericMethod summary
+        /// </summary>
+        public void GenericMethod<T>(IEnumerable<T> arg)
+        {
+        }
+
+        /// <summary>
+        /// GenericMethod summary
+        /// </summary>
+        public void GenericMethod<T>(Tuple<T, int> arg)
+        {
+        }
+
+        /// <summary>
+        /// GenericMethod summary
+        /// </summary>
+        public void GenericMethod<T>(Tuple<T, T> arg)
+        {
+        }
+
+        /// <summary>
         /// Equals summary
         /// </summary>
         /// <param name="obj">Equals param</param>

@@ -9,11 +9,12 @@
         <projectUrl>https://github.com/Artees/XmlDocumentationNameGetter</projectUrl>
         <iconUrl>https://artees.games/img/icon.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>Allows to get the name of a type or a member that corresponds to the XML 
-            documentation convention.</description>
+        <description>Allows to get the name of a type or a member that corresponds to the XML
+            documentation convention.
+        </description>
         <copyright>Copyright © Artees 2018</copyright>
         <tags>xml documentation comments</tags>
-        <version>1.0.0</version>
-        <releaseNotes> </releaseNotes>
+        <version>1.0.1</version>
+        <releaseNotes>Bug fix: generic methods with type parameters.</releaseNotes>
     </metadata>
 </package>
