@@ -1,5 +1,5 @@
-﻿using System;
-// ReSharper disable UnusedMember.Global
+﻿// ReSharper disable UnusedMember.Global, EmptyConstructor, UnusedParameter.Global
+using System;
 
 namespace XmlDocumentationNameGetterTestAssembly
 {
@@ -8,14 +8,11 @@ namespace XmlDocumentationNameGetterTestAssembly
     /// </summary>
     /// <typeparam name="T0"></typeparam>
     /// <typeparam name="T1"></typeparam>
-    // ReSharper disable once UnusedMember.Global
-    // ReSharper disable UnusedTypeParameter
     public class GenericClassWithTwoConstraints<T0, T1>
     {
         /// <summary>
         /// Constructor summary
         /// </summary>
-        // ReSharper disable once EmptyConstructor
         public GenericClassWithTwoConstraints()
         {
         }
@@ -26,6 +23,21 @@ namespace XmlDocumentationNameGetterTestAssembly
         public void Method()
         {
             
+        }
+
+        /// <summary>
+        /// Method summary
+        /// </summary>
+        public void Method(T0 arg0, T1 arg1)
+        {
+            
+        }
+
+        /// <summary>
+        /// Method summary
+        /// </summary>
+        public void Method(Tuple<T0, T1> arg)
+        {
         }
         
         /// <summary>

@@ -1,13 +1,12 @@
-﻿using System;
-// ReSharper disable UnusedMember.Global
+﻿// ReSharper disable UnusedMember.Global, UnusedParameter.Global
+using System;
+using System.Collections.Generic;
 
 namespace XmlDocumentationNameGetterTestAssembly
 {
     /// <summary>
     /// GenericClass summary
     /// </summary>
-    // ReSharper disable once UnusedMember.Global
-    // ReSharper disable once UnusedTypeParameter
     public class GenericClass<T>
     {
         /// <summary>
@@ -24,6 +23,44 @@ namespace XmlDocumentationNameGetterTestAssembly
         public void Method()
         {
             
+        }
+        
+        /// <summary>
+        /// Method summary
+        /// </summary>
+        public void Method(T arg)
+        {
+            
+        }
+        
+        /// <summary>
+        /// Method summary
+        /// </summary>
+        public void Method<TMethod>(T aType, TMethod aMethod)
+        {
+            
+        }
+        
+        /// <summary>
+        /// Method summary
+        /// </summary>
+        public void Method<TMethod0, TMethod1>(T aType, TMethod0 aMethod0, TMethod1 aMethod1)
+        {
+            
+        }
+
+        /// <summary>
+        /// Method summary
+        /// </summary>
+        public void Method(IEnumerable<T> arg)
+        {
+        }
+
+        /// <summary>
+        /// Method summary
+        /// </summary>
+        public void Method<TMethod>(Tuple<T, TMethod> arg)
+        {
         }
         
         /// <summary>

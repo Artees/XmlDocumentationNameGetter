@@ -37,7 +37,7 @@ namespace Artees.Tools.XmlDocumentationNameGetter
         {
             return GetXmlDocsName(member.MemberType);
         }
-        
+
         /// <summary>
         /// Returns the name of the member's type that corresponds to the XML documentation
         /// convention.
@@ -59,7 +59,7 @@ namespace Artees.Tools.XmlDocumentationNameGetter
 
         private static string GetTypeName(Type type)
         {
-            if (type.IsGenericParameter) return "``0";
+            if (type.IsGenericParameter) return GetGenericTypeName(type);
             var genericArgs = GetGenericTypeArgsString(type);
             var f = type.FullName ?? $"{type.Namespace}.{type.Name}";
             var g = string.IsNullOrEmpty(genericArgs) ? f : f.Split('`')[0];
@@ -67,13 +67,39 @@ namespace Artees.Tools.XmlDocumentationNameGetter
             return $"{typeName}{genericArgs}";
         }
 
-        private static string GetGenericTypeArgsString(Type type)
+        private static string GetGenericTypeName(Type type)
         {
-            var genericTypeArguments = type.GenericTypeArguments;
-            if (genericTypeArguments.Length == 0) return string.Empty;
-            var genericArgsNames = genericTypeArguments.Select(GetTypeName).ToArray();
-            var genericArgsJoined = string.Join(",", genericArgsNames);
-            return $"{{{genericArgsJoined}}}";
+            var declaringMethod = type.DeclaringMethod;
+            if (declaringMethod == null)
+            {
+                var typeGenericArguments = type.DeclaringType?.GetGenericArguments();
+                return $"`{IndexOf(typeGenericArguments, type)}";
+            }
+
+            var methodGenericArguments = declaringMethod.GetGenericArguments();
+            return $"``{IndexOf(methodGenericArguments, type)}";
+        }
+
+        private static int IndexOf<T>(IReadOnlyList<T> array, T item)
+        {
+            for (var i = 0; i < array.Count; i++)
+            {
+                if (array[i].Equals(item)) return i;
+            }
+
+            return -1;
+        }
+
+        private static string GetGenericTypeArgsString(Type typee)
+        {
+            return JoinTypesName(typee.GenericTypeArguments, '{', '}');
+        }
+
+        private static string JoinTypesName(Type[] types, char leftBracket, char rightBracket)
+        {
+            if (!types.Any()) return string.Empty;
+            var joined = string.Join(",", types.Select(GetTypeName));
+            return $"{leftBracket}{joined}{rightBracket}";
         }
 
         private static string GetMemberName(MemberInfo member)
@@ -109,10 +135,8 @@ namespace Artees.Tools.XmlDocumentationNameGetter
         private static string GetParametersName(MethodBase method)
         {
             var parameters = method.GetParameters();
-            if (parameters.Length == 0) return string.Empty;
-            var paramNames = parameters.Select(p => GetTypeName(p.ParameterType));
-            var paramJoined = string.Join(",", paramNames.ToArray());
-            return $"({paramJoined})";
+            var types = parameters.Select(p => p.ParameterType);
+            return JoinTypesName(types.ToArray(), '(', ')');
         }
     }
 }

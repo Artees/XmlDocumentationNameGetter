@@ -112,6 +112,22 @@ namespace XmlDocumentationNameGetterTestAssembly
         /// <summary>
         /// GenericMethod summary
         /// </summary>
+        /// <typeparam name="T">GenericMethod typeparam</typeparam>
+        public void GenericMethod<T>(int arg0, T arg1, int arg2)
+        {
+        }
+
+        /// <summary>
+        /// GenericMethod summary
+        /// </summary>
+        /// <typeparam name="T">GenericMethod typeparam</typeparam>
+        public void GenericMethod<T>(T arg0, int arg1, T arg2)
+        {
+        }
+
+        /// <summary>
+        /// GenericMethod summary
+        /// </summary>
         public void GenericMethod<T>(IEnumerable<T> arg)
         {
         }
