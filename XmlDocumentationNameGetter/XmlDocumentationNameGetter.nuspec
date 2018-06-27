@@ -14,7 +14,7 @@
         </description>
         <copyright>Copyright © Artees 2018</copyright>
         <tags>xml documentation comments</tags>
-        <version>1.0.3</version>
+        <version>1.0.4</version>
         <releaseNotes>Bug fix: generic types.</releaseNotes>
     </metadata>
 </package>
