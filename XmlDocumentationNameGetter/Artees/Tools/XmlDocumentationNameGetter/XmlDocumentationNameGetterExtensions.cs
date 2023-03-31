@@ -63,7 +63,7 @@ namespace Artees.Tools.XmlDocumentationNameGetter
             var genericArgs = GetGenericTypeArgsString(type);
             var f = type.FullName ?? $"{type.Namespace}.{type.Name}";
             var g = string.IsNullOrEmpty(genericArgs) ? f : f.Split('`')[0];
-            var typeName = g.Replace('+', '.');
+            var typeName = g.Replace('+', '.').Replace("&", "@");
             return $"{typeName}{genericArgs}";
         }
 
