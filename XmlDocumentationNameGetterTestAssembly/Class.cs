@@ -70,6 +70,23 @@ namespace XmlDocumentationNameGetterTestAssembly
         /// <summary>
         /// Method summary
         /// </summary>
+        /// <param name="arg">Out argument</param>
+        public void MethodOutParameter(out int arg)
+        {
+            arg = 0;
+        }
+
+        /// <summary>
+        /// Method summary
+        /// </summary>
+        /// <param name="arg">Ref argument</param>
+        public void MethodRefParameter(ref int arg)
+        {
+        }
+
+        /// <summary>
+        /// Method summary
+        /// </summary>
         public void Method(Tuple<int, int> arg)
         {
         }
