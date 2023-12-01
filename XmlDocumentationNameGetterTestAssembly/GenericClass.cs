@@ -63,6 +63,41 @@ namespace XmlDocumentationNameGetterTestAssembly
         {
         }
         
+
+        /// <summary>
+        /// Method summary
+        /// </summary>
+        public void Method(out T arg)
+        {
+            arg = default(T);
+        }
+
+        /// <summary>
+        /// Method summary
+        /// </summary>
+        public void MethodGenericOut<TMethod>(out TMethod arg)
+        {
+            arg = default(TMethod);
+        }
+
+        /// <summary>
+        /// Method summary
+        /// </summary>
+        public void MethodGenericOut<TMethod>(out TMethod arg1, out T arg2)
+        {
+            arg1 = default(TMethod);
+            arg2 = default(T);
+        }
+
+        /// <summary>
+        /// Method summary
+        /// </summary>
+        public void MethodGenericRef<TMethod>(ref TMethod arg1, ref T arg2)
+        {
+            arg1 = default(TMethod);
+            arg2 = default(T);
+        }
+
         /// <summary>
         /// Equals summary
         /// </summary>
